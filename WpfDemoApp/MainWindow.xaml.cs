@@ -62,22 +62,30 @@ namespace WpfDemoApp
 
                 var reader = new JsonReader();
 
-                var shapes = reader.ReadJsonFromFile(filePath);
-
-                foreach (var shape in shapes)
+                try
                 {
-                    switch(shape.Type)
-                    {
-                        case "line":
-                            _renderer.RenderLine((CustomLine)shape, canvas);
-                            break;
-                        case "circle":
-                            _renderer.RenderCircle((CustomCircle)shape, canvas);
-                            break;
-                        case "triangle":
-                            _renderer.RenderTriangle((CustomTriangle)shape, canvas);
-                            break;
-                    }
+                    var shapes = reader.ReadJsonFromFile(filePath);
+
+                    if (shapes != null)
+                        foreach (var shape in shapes)
+                        {
+                            switch (shape.Type)
+                            {
+                                case "line":
+                                    _renderer.RenderLine((CustomLine)shape, canvas);
+                                    break;
+                                case "circle":
+                                    _renderer.RenderCircle((CustomCircle)shape, canvas);
+                                    break;
+                                case "triangle":
+                                    _renderer.RenderTriangle((CustomTriangle)shape, canvas);
+                                    break;
+                            }
+                        }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
             }
         }

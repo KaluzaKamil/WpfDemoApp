@@ -9,7 +9,7 @@ namespace WpfDemoApp.Readers
     {
         public JsonReader() { }
 
-        public List<CustomShape> ReadJsonFromFile(string path)
+        public List<CustomShape>? ReadJsonFromFile(string path)
         {
             var shapes = new List<CustomShape>();
 
