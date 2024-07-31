@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -14,7 +11,6 @@ namespace WpfDemoApp.Renderers
 {
     public class ShapesRenderer
     {
-        public ShapesRenderer() { }
         public void RenderLine(CustomLine cLine, Canvas canvas)
         {
             var line = new Line();
