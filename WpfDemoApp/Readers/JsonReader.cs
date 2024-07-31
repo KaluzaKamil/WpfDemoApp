@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.IO;
+using System.Windows;
+using System.Windows.Media.Animation;
 using WpfDemoApp.Converters;
 using WpfDemoApp.Models;
 
@@ -15,7 +17,7 @@ namespace WpfDemoApp.Readers
 
             using (StreamReader sr = new StreamReader(path))
             {
-                string json = sr.ReadToEnd(); 
+                string json = sr.ReadToEnd();
                 shapes = JsonConvert.DeserializeObject<List<CustomShape>>(json, new JsonShapeConverter());
             }
 

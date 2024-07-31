@@ -17,7 +17,7 @@ namespace WpfDemoApp.Converters
 
             string type = (string)jo["type"];
 
-            CustomShape shape;
+            CustomShape shape = null;
 
             switch(type)
             {
@@ -30,11 +30,10 @@ namespace WpfDemoApp.Converters
                 case "triangle":
                     shape = new CustomTriangle();
                     break;
-                default:
-                    throw new Exception("Type not found");
             }
 
-            serializer.Populate(jo.CreateReader(), shape);
+            if(shape != null)
+                serializer.Populate(jo.CreateReader(), shape);
 
             return shape;
         }
