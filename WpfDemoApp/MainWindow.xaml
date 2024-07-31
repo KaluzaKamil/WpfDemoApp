@@ -31,16 +31,6 @@
             >
             <Canvas Name="canvas"
                 Height="25" Width="25">
-                <Line Name="xline"
-                    X1="0" Y1="-250"
-                    X2="0" Y2="250"
-                    Stroke="Black"
-                    StrokeThickness="1" />
-                <Line Name="yline"
-                    X1="-250" Y1="0"
-                    X2="250" Y2="0"
-                    Stroke="Black"
-                    StrokeThickness="1" />
             </Canvas>
         </Viewbox>
     </Grid>
