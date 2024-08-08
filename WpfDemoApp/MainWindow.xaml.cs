@@ -4,7 +4,7 @@ using System.Windows.Media;
 using System.Windows.Shapes;
 using WpfDemoApp.Models;
 using WpfDemoApp.Readers;
-using WpfDemoApp.Renderers;
+using WpfDemoApp.Popups;
 
 namespace WpfDemoApp
 {
@@ -15,10 +15,8 @@ namespace WpfDemoApp
     {
         private Line _xLine;
         private Line _yLine;
-        private ShapesRenderer _renderer;
         public MainWindow()
         {
-            _renderer = new ShapesRenderer();
             _xLine = new Line()
             {
                 X1 = 0,
@@ -69,18 +67,7 @@ namespace WpfDemoApp
                     shapes.RemoveAll(s => s == null);
                     foreach (var shape in shapes)
                     {
-                        switch (shape.Type)
-                        {
-                            case "line":
-                                _renderer.RenderLine((CustomLine)shape, canvas);
-                                break;
-                            case "circle":
-                                _renderer.RenderCircle((CustomCircle)shape, canvas);
-                                break;
-                            case "triangle":
-                                _renderer.RenderTriangle((CustomTriangle)shape, canvas);
-                                break;
-                        }
+                        shape.Render(canvas);
                     }
                 }
             }
